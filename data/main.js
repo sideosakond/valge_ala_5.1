@@ -30,9 +30,15 @@ var map = new ol.Map({
 });
 map.getView().setCenter(ol.extent.getCenter(projection.getExtent()));
 
+
+function getRandomHexColor() {
+  return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+}
+
+
 let geojson = geojson_array[0];
 let features = new ol.format.GeoJSON().readFeatures(geojson, {dataProjection: 'EPSG:3301', featureProjection: 'EPSG:3301'});
-let hex_color = "#008000";//#fa003f
+let hex_color = "#00AA00";//getRandomHexColor();
 
 const layer = new ol.layer.Vector({
   //declutter: true,
